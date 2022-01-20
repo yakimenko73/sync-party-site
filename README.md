@@ -15,12 +15,16 @@ Web-site for the open source project sync-party
    ```sh
    git clone https://github.com/yakimenko73/sync-party-site.git
    ```
-2. Runs the app in the development mode.\
+2. Installs all the packages in package.json
+```sh
+   npm install
+```
+3. Runs the app in the development mode.\
    Open [http://localhost:3000](http://localhost:3000) to view it in browser.
    ```sh
    npm start
    ```
-3. Collect static content for admin panel
+4. Collect static content for admin panel
    ```sh
    npm run build
    ```
