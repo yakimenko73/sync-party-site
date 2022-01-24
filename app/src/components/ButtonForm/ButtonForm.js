@@ -6,7 +6,6 @@ class ButtonForm extends Component {
     submitHandler = event => {
         axios.post(`http://0.0.0.0:1337/api/rooms/`)
             .then(res => {
-                console.log(res);
                 console.log(res.data);
             })
         event.preventDefault();

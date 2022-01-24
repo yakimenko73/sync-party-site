@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import ButtonForm from "./components/ButtonForm/ButtonForm";
 
-
 function App() {
     return (
         <div className='app'>
@@ -12,12 +11,10 @@ function App() {
                 </div>
             </header>
             <main className='main'>
-                <div>
-                    <ButtonForm onSubmit={() => this.closeForm()}/>
-                </div>
+                <ButtonForm/>
             </main>
         </div>
-    );
+    )
 }
 
 export default App;
