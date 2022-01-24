@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './ButtonForm.css';
 import axios from 'axios';
 
 class ButtonForm extends Component {
@@ -15,9 +15,7 @@ class ButtonForm extends Component {
     render() {
         return (
             <form className='button-form' onSubmit={this.submitHandler}>
-                <button className='button' type='submit'>
-                    Создать комнату
-                </button>
+                <button className='button' type='submit'>Create room</button>
             </form>
         );
     }

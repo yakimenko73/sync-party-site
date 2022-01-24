@@ -1,3 +1,6 @@
+.app {
+    background-color: #191926;
+}
 .app .container {
     width: 1000px;
     padding: 0 20px;
@@ -6,8 +9,7 @@
 
 .header {
     height: 60px;
-    background-color: darkcyan;
-    color: white;
+    color: White;
 }
 
 .header .container {
@@ -19,35 +21,4 @@
 .header-brand {
     font-size: 24px;
     font-weight: bold;
-}
-
-.about {
-    position: relative;
-    padding: 100px 0;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-}
-
-.about__title {
-    font-size: 50px;
-    margin-bottom: 30px;
-}
-
-.about__description p {
-    margin: 20px 0;
-    font-size: 24px;
-}
-
-.about__bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    filter: brightness(0.3);
 }

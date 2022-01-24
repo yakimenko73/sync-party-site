@@ -8,21 +8,12 @@ function App() {
         <div className='app'>
             <header className='header'>
                 <div className='container'>
-                    <div className='header-brand'>Sync-party</div>
+                    <div className='header-brand'>Title</div>
                 </div>
             </header>
-
             <main className='main'>
-                <div className='about'>
-                    <div className='about__bg'/>
-                    <div className='container'>
-                    </div>
-                </div>
                 <div>
-                    <hr/>
-                    <ButtonForm
-                        onSubmit={() => this.closeForm()}
-                    />
+                    <ButtonForm onSubmit={() => this.closeForm()}/>
                 </div>
             </main>
         </div>
