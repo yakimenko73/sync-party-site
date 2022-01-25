@@ -1,20 +1,17 @@
 import React from 'react';
 import './App.css';
-import ButtonForm from "./components/ButtonForm/ButtonForm";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import RoomsForm from "./components/RoomsForm/RoomsForm";
+import HomeForm from "./components/HomeForm/HomeForm";
 
-function App() {
-    return (
-        <div className='app'>
-            <header className='header'>
-                <div className='container'>
-                    <div className='header-brand'>Title</div>
-                </div>
-            </header>
-            <main className='main'>
-                <ButtonForm/>
-            </main>
-        </div>
-    )
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<HomeForm/>}/>
+        <Route exact path="/rooms" element={<RoomsForm/>}/>
+      </Routes>
+    </BrowserRouter>
+  )
 }
-
-export default App;
