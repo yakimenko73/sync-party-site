@@ -36,7 +36,10 @@ export default function () {
   return (
     <div className='chat-wrapper'>
       <ChatLogForm messages={messages}/>
-      <InputForm value={inputValue} onChange={handleUserInput} onKeyDown={handleChatKeyDown}/>
+      <InputForm value={inputValue}
+                 onChange={handleUserInput}
+                 onKeyDown={handleChatKeyDown}
+                 placeholder={'Send a message'}/>
     </div>
   )
 }

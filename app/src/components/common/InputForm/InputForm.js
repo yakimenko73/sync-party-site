@@ -6,6 +6,7 @@ export default function InputForm(props) {
     <input type="text" className='input'
            value={props.value}
            onChange={props.onChange}
-           onKeyDown={props.onKeyDown}/>
+           onKeyDown={props.onKeyDown}
+           placeholder={props.placeholder}/>
   )
 }
