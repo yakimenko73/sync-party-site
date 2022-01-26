@@ -10,7 +10,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<HomeForm/>}/>
-        <Route exact path="/rooms" element={<RoomForm/>}/>
+        <Route exact path="/rooms/:roomKey" element={<RoomForm/>}/>
       </Routes>
     </BrowserRouter>
   )

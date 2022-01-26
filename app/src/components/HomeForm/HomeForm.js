@@ -4,6 +4,12 @@ import ButtonForm from "../common/ButtonForm/ButtonForm";
 import axios from "axios";
 import HeaderForm from "../HeaderForm/HeaderForm";
 
+const RAW_ROOM = {
+  "roomKey": "443d-2Sd-y",
+  "host": "hostuser_key",
+  "users": ["hostuser_key", "guestuser_key", "moderatoruser_key"]
+}
+
 export default function HomeForm() {
   const navigate = useNavigate();
   return (
@@ -15,7 +21,7 @@ export default function HomeForm() {
             .then(res => {
               console.log(res.data);
             })
-          navigate('/rooms')
+          navigate(`/rooms/${RAW_ROOM.roomKey}`)
         }}/>
       </main>
     </>
