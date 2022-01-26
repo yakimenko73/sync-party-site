@@ -8,12 +8,12 @@
 }
 
 .chat-log {
-    height: 500px;
+    height: 700px;
     border-top-right-radius: 0.2em;
     border-bottom-right-radius: 0.2em;
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 500px;
+    max-height: 700px;
     margin-bottom: 10px;
 }
 
