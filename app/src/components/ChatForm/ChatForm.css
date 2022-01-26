@@ -8,8 +8,7 @@
 }
 
 .chat-log {
-    /*background: #5E5DF0;*/
-    height: 500px;
+    height: 100px;
     border-top-right-radius: 0.2em;
     border-bottom-right-radius: 0.2em;
     overflow-y: auto;
@@ -31,16 +30,4 @@
 
 .chat-log .message-line .separator {
     color: rgba(255, 255, 255, 0.3);
-}
-
-.input-message {
-    background: #161625;
-    color: #969696;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 700;
-    border: 0;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 15px 20px;
 }
