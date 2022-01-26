@@ -1,6 +1,6 @@
 export default class ChatMessageLineDto {
   /**
-   * @param {{color: string, author: string, message: string}} data
+   * @param {{color: string, author: string, message: string}|null} data
    */
   constructor(data = null) {
     this.author = data?.author;

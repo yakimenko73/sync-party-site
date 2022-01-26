@@ -1,6 +1,6 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
-import ButtonForm from "../ButtonForm/ButtonForm";
+import ButtonForm from "../common/ButtonForm/ButtonForm";
 import axios from "axios";
 import HeaderForm from "../HeaderForm/HeaderForm";
 

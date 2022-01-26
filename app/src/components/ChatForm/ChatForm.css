@@ -8,10 +8,11 @@
 }
 
 .chat-log {
-    height: 100px;
+    height: 500px;
     border-top-right-radius: 0.2em;
     border-bottom-right-radius: 0.2em;
     overflow-y: auto;
+    overflow-x: hidden;
     max-height: 500px;
     margin-bottom: 10px;
 }
@@ -26,6 +27,7 @@
 
 .chat-log .message-line .message {
     color: rgba(255, 255, 255, 0.85);
+    word-wrap: break-word;
 }
 
 .chat-log .message-line .separator {
