@@ -17,7 +17,7 @@ export default function ChatLogForm(props) {
     <div className='chat-log'>
       {
         props.messages.map((message, index) =>
-          <MessageLineForm author={message.author} message={message.message} color={message.color} key={index}/>)
+          <MessageLineForm author={message.author} message={message.text} color={message.color} key={index}/>)
       }
       <div ref={messagesEndRef}/>
     </div>
