@@ -1,27 +1,26 @@
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import ChatLogForm from "./ChatLogForm";
 import InputForm from "../common/InputForm/InputForm";
 import './ChatForm.css'
 import ChatMessageLineDto from '../../dto/ChatMessageLineDto'
 
-const RAW_MESSAGE_LINE = {
-  "author": 'John Doe',
-}
-
 export default function () {
   const [messages, appendMessageLine] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const ws = useRef(null);
 
   const handleChatKeyDown = (e) => {
     if (e.key === 'Enter') {
       let text = e.target.value
       if (text) {
-        RAW_MESSAGE_LINE.message = text
-        let messageLine = new ChatMessageLineDto(RAW_MESSAGE_LINE)
-        appendMessageLine(messages.concat(messageLine))
-
-        resetInputField()
+        ws.current.send(JSON.stringify({
+          data: JSON.stringify({
+            author: "John Doe",
+            message: text
+          }),
+        }))
       }
+      resetInputField()
     }
   }
 
@@ -32,6 +31,23 @@ export default function () {
   const resetInputField = () => {
     setInputValue('');
   };
+
+  useEffect(() => {
+    ws.current = new WebSocket("ws://localhost:4000/ws/chat");
+    ws.current.onopen = () => console.debug("WS: Connection open");
+    ws.current.onclose = () => console.debug("WS: Connection close");
+
+    ws.current.onmessage = e => {
+      console.debug(`WS: Receive message ${e.data}`)
+
+      let messageLine = new ChatMessageLineDto(JSON.parse(e.data))
+      appendMessageLine(prevState => prevState.concat(messageLine))
+    };
+
+    return () => {
+      ws.current.close()
+    }
+  }, []);
 
   return (
     <div className='chat-wrapper'>
