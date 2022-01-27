@@ -3,11 +3,13 @@ import ChatLogForm from "./ChatLogForm";
 import InputForm from "../common/InputForm/InputForm";
 import './ChatForm.css'
 import ChatMessageLineDto from '../../dto/ChatMessageLineDto'
+import {useLocation} from "react-router";
 
 export default function () {
   const [messages, appendMessageLine] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const ws = useRef(null);
+  let location = useLocation()
 
   const handleChatKeyDown = (e) => {
     if (e.key === 'Enter') {
@@ -35,13 +37,14 @@ export default function () {
   };
 
   useEffect(() => {
-    ws.current = new WebSocket("ws://localhost:4000/ws/chat");
+    let room = location.pathname.split('/')[2] //FIXME
+    ws.current = new WebSocket(`ws://localhost:4000/ws/chat/${room}`);
     ws.current.onopen = () => {
       console.debug("WS: Connection open")
       ws.current.send(JSON.stringify({
         data: {
           command: {
-            room: "443d-2Sd-y",
+            room: room,
             text: 'Join'
           }
         },
@@ -52,7 +55,7 @@ export default function () {
       ws.current.send(JSON.stringify({
         data: {
           command: {
-            room: "443d-2Sd-y",
+            room: room,
             text: 'Left'
           }
         },
