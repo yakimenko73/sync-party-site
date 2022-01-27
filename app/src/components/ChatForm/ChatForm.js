@@ -14,10 +14,12 @@ export default function () {
       let text = e.target.value
       if (text) {
         ws.current.send(JSON.stringify({
-          data: JSON.stringify({
-            author: "John Doe",
-            message: text
-          }),
+          data: {
+            message: {
+              author: "John Doe",
+              text: text
+            }
+          },
         }))
       }
       resetInputField()
@@ -34,13 +36,33 @@ export default function () {
 
   useEffect(() => {
     ws.current = new WebSocket("ws://localhost:4000/ws/chat");
-    ws.current.onopen = () => console.debug("WS: Connection open");
-    ws.current.onclose = () => console.debug("WS: Connection close");
+    ws.current.onopen = () => {
+      console.debug("WS: Connection open")
+      ws.current.send(JSON.stringify({
+        data: {
+          command: {
+            room: "443d-2Sd-y",
+            text: 'Join'
+          }
+        },
+      }))
+    };
+    ws.current.onclose = () => {
+      console.debug("WS: Connection close")
+      ws.current.send(JSON.stringify({
+        data: {
+          command: {
+            room: "443d-2Sd-y",
+            text: 'Left'
+          }
+        },
+      }))
+    };
 
     ws.current.onmessage = e => {
       console.debug(`WS: Receive message ${e.data}`)
 
-      let messageLine = new ChatMessageLineDto(JSON.parse(e.data))
+      let messageLine = new ChatMessageLineDto(JSON.parse(e.data).message)
       appendMessageLine(prevState => prevState.concat(messageLine))
     };
 
