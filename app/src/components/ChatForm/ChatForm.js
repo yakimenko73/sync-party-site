@@ -37,7 +37,7 @@ export default function () {
   };
 
   useEffect(() => {
-    let room = location.pathname.split('/')[2] //FIXME
+    let room = location.pathname.split('/')[2] //FIXME find better solution
     ws.current = new WebSocket(`ws://localhost:4000/ws/chat/${room}`);
     ws.current.onopen = () => {
       console.debug("WS: Connection open")
@@ -52,14 +52,6 @@ export default function () {
     };
     ws.current.onclose = () => {
       console.debug("WS: Connection close")
-      ws.current.send(JSON.stringify({
-        data: {
-          command: {
-            room: room,
-            text: 'Left'
-          }
-        },
-      }))
     };
 
     ws.current.onmessage = e => {
