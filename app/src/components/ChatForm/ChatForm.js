@@ -13,13 +13,13 @@ export default function () {
 
   const handleChatKeyDown = (e) => {
     if (e.key === 'Enter') {
-      let text = e.target.value
+      let text = e.target.value.trim()
       if (text) {
         ws.current.send(JSON.stringify({
           data: {
             message: {
               author: "John Doe",
-              text: text
+              text: text.replace(/\s+/g, ' ')
             }
           },
         }))
