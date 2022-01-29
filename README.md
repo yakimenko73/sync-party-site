@@ -10,26 +10,25 @@ Web-site for the open source project sync-party
 * [Bootstrap](https://getbootstrap.com/docs/3.4/javascript/)
 
 ### Installation
-
+Requires Node.js >= 14.0
 1. Clone the repo
    ```sh
    git clone https://github.com/yakimenko73/sync-party-site.git
    ```
 2. Installs all the packages in package.json
-```sh
+   ```sh
    npm install
-```
+   ```
 3. Runs the app in the development mode.\
    Open [http://localhost:3000](http://localhost:3000) to view it in browser.
    ```sh
    npm start
    ```
-4. Collect static content for admin panel
+4. Builds the app for production to the `build` folder.\
+   It correctly bundles React in production mode and optimizes the build for the best performance.
    ```sh
    npm run build
    ```
-   Builds the app for production to the `build` folder.\
-   It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
 App is ready to be deployed!
