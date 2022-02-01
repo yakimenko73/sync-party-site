@@ -18,7 +18,6 @@ export default function () {
         ws.current.send(JSON.stringify({
           data: {
             message: {
-              author: "John Doe",
               text: text.replace(/\s+/g, ' ')
             }
           },
