@@ -12,14 +12,23 @@ const RAW_ROOM = {
 
 export default function HomeForm() {
   const navigate = useNavigate();
+  const location = window.location;
+  let config = {
+    headers: {
+      Session: "b4bxi0pb1smbsi9kwn3hzqcdxvmwsni5", //TODO: get from [POST /api/sessions] api
+    }
+  }
+
   return (
     <>
       <HeaderForm/>
       <main className='main'>
         <ButtonForm onClick={() => {
-          axios.post(`http://0.0.0.0:1337/api/rooms/`)
+          axios.post(
+            `${location.protocol}//${location.hostname}:8000/api/rooms/`,
+            null, config)
             .then(res => {
-              console.log(res.data);
+              console.debug(res.data);
             })
           navigate(`/rooms/${RAW_ROOM.roomKey}`)
         }}/>

@@ -9,7 +9,7 @@ export default function () {
   const [messages, appendMessageLine] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const ws = useRef(null);
-  let location = useLocation()
+  const location = useLocation()
 
   const handleChatKeyDown = (e) => {
     if (e.key === 'Enter') {
