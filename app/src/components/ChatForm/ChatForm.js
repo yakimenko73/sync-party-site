@@ -36,8 +36,9 @@ export default function () {
   };
 
   useEffect(() => {
+    // document.cookie = "sessionid=bqqiwebmphxt797p9tggeolaeunrlx3k"
     let room = location.pathname.split('/')[2] //FIXME find better solution
-    ws.current = new WebSocket(`ws://localhost:4000/ws/chat/${room}`);
+    ws.current = new WebSocket(`ws://${window.location.hostname}:8001/ws/chat/${room}`);
     ws.current.onopen = () => {
       console.debug("WS: Connection open")
       ws.current.send(JSON.stringify({
