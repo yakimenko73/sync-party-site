@@ -36,7 +36,7 @@ export default function () {
   };
 
   useEffect(() => {
-    // document.cookie = "sessionid=bqqiwebmphxt797p9tggeolaeunrlx3k"
+    document.cookie = "sessionid=wxieje5ndhkffepcajepwz3y5m3alw4y"
     let room = location.pathname.split('/')[2] //FIXME find better solution
     ws.current = new WebSocket(`ws://${window.location.hostname}:8001/ws/chat/${room}`);
     ws.current.onopen = () => {
@@ -44,7 +44,6 @@ export default function () {
       ws.current.send(JSON.stringify({
         data: {
           command: {
-            room: room,
             text: 'Join'
           }
         },
@@ -55,9 +54,9 @@ export default function () {
     };
 
     ws.current.onmessage = e => {
-      console.debug(`WS: Receive message ${e.data}`)
+      console.debug(`WS: Receive message ${e.data.data}`)
 
-      let messageLine = new ChatMessageLineDto(JSON.parse(e.data).message)
+      let messageLine = new ChatMessageLineDto(JSON.parse(e.data).data.message)
       appendMessageLine(prevState => prevState.concat(messageLine))
     };
 
