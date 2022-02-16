@@ -10,6 +10,7 @@ export default function () {
   const [inputValue, setInputValue] = useState('');
   const ws = useRef(null);
   const location = useLocation()
+  const chatInputMaxLength = 1000
 
   const handleChatKeyDown = (e) => {
     if (e.key === 'Enter') {
@@ -71,7 +72,8 @@ export default function () {
       <InputForm value={inputValue}
                  onChange={handleUserInput}
                  onKeyDown={handleChatKeyDown}
-                 placeholder={'Send a message'}/>
+                 placeholder={'Send a message'}
+                 maxLength={chatInputMaxLength}/>
     </div>
   )
 }

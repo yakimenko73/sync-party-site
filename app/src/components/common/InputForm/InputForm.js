@@ -7,6 +7,7 @@ export default function InputForm(props) {
            value={props.value}
            onChange={props.onChange}
            onKeyDown={props.onKeyDown}
-           placeholder={props.placeholder}/>
+           placeholder={props.placeholder}
+           maxLength={props.maxLength}/>
   )
 }
