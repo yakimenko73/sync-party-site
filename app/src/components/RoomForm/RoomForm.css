@@ -1,0 +1,7 @@
+.main {
+    background-color: #191926;
+    height: 90vh;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: stretch;
+}

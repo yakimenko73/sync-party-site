@@ -1,19 +1,12 @@
-.app {
-    background-color: #191926;
-}
-
-.app .container {
-    padding: 0 20px;
-    margin: 0 auto;
-}
-
 .header {
+    background-color: #191926;
     height: 60px;
     color: White;
     margin-bottom: 20px;
 }
 
 .header .container {
+    margin-left: 0.3%;
     height: 100%;
     display: flex;
     align-items: center;

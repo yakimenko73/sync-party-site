@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import RoomForm from "./components/RoomForm/RoomForm";
 import HomeForm from "./components/HomeForm/HomeForm";

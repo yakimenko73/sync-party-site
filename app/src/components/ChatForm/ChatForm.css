@@ -3,17 +3,17 @@
     flex-direction: column;
     float: right;
     width: 25%;
-    margin-right: 30px;
     margin-left: 30px;
+    height: 100%;
 }
 
 .chat-log {
-    height: 700px;
     border-top-right-radius: 0.2em;
     border-bottom-right-radius: 0.2em;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(97, 218, 251, 0.35) #191926;
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 700px;
     margin-bottom: 10px;
 }
 

@@ -12,7 +12,7 @@ export default function HomeForm() {
   return (
     <>
       <HeaderForm/>
-      <main className='main'>
+      <main>
         <ButtonForm onClick={() => {
           axios.post(`${location.protocol}//${location.hostname}:8000/api/rooms/`)
             .then(res => {
