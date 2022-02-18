@@ -41,12 +41,16 @@ export default function RoomForm() {
   }
 
   const handleJoinRoom = (room_key) => {
-    if (location.state === null)
+    if (location.state === null || !location.state.navigated)
       axios.get(`${window.location.protocol}//${window.location.hostname}:8000/api/rooms/${room_key}`)
-        .catch(e => {
-          if (e.response.status === 404)
+        .then(res => {
+          console.log(res)
+        })
+        .catch(res => {
+          if (res.response.status === 404)
             navigate('room-not-found')
         })
+    openWSConnection(room_key)
   }
 
   useEffect(() => {
@@ -54,8 +58,6 @@ export default function RoomForm() {
     let room_key = location.pathname.split('/')[2] //FIXME find better solution
 
     handleJoinRoom(room_key)
-
-    openWSConnection(room_key)
 
     return () => {
       ws.current.close()
