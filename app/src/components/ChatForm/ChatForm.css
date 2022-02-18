@@ -7,9 +7,13 @@
     height: 100%;
 }
 
+.chat-footer {
+    position: fixed;
+    bottom: 0;
+    width: 19.5%;
+}
+
 .chat-log {
-    border-top-right-radius: 0.2em;
-    border-bottom-right-radius: 0.2em;
     scrollbar-width: thin;
     scrollbar-color: rgba(97, 218, 251, 0.40) #191926;
     overflow-y: auto;

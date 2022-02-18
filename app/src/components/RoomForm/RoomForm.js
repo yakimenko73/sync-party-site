@@ -50,7 +50,7 @@ export default function RoomForm() {
   }
 
   useEffect(() => {
-    // document.cookie = "sessionid=wxieje5ndhkffepcajepwz3y5m3alw4y"
+    document.cookie = "sessionid=xakmh2ffco0jss76287gyinm8sfaqqev"
     let room_key = location.pathname.split('/')[2] //FIXME find better solution
 
     handleJoinRoom(room_key)

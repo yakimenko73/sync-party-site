@@ -34,11 +34,13 @@ export default function (props) {
   return (
     <div className='chat-wrapper'>
       <ChatLogForm messages={props.messages}/>
-      <InputForm value={inputValue}
-                 onChange={handleUserInput}
-                 onKeyDown={handleChatKeyDown}
-                 placeholder={'Send a message'}
-                 maxLength={chatInputMaxLength}/>
+      <div className="chat-footer">
+        <InputForm value={inputValue}
+                   onChange={handleUserInput}
+                   onKeyDown={handleChatKeyDown}
+                   placeholder={'Send a message'}
+                   maxLength={chatInputMaxLength}/>
+      </div>
     </div>
   )
 }
