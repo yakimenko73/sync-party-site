@@ -5,17 +5,17 @@ import PlayerForm from "../PlayerForm/PlayerForm";
 import './RoomForm.css'
 import ChatMessageLineDto from "../../dto/ChatMessageLineDto";
 import {useLocation} from "react-router";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export default function RoomForm() {
   const location = useLocation()
+  const navigate = useNavigate()
   const [chatMessages, appendMessageLine] = useState([])
   const ws = useRef(null)
 
-  useEffect(() => {
-    document.cookie = "sessionid=wxieje5ndhkffepcajepwz3y5m3alw4y"
-    let room = location.pathname.split('/')[2] //FIXME find better solution
-
-    ws.current = new WebSocket(`ws://${window.location.hostname}:8001/ws/chat/${room}`);
+  const openWSConnection = (room_key) => {
+    ws.current = new WebSocket(`ws://${window.location.hostname}:8001/ws/chat/${room_key}`);
 
     ws.current.onopen = () => {
       console.debug("WS: Connection open")
@@ -33,11 +33,29 @@ export default function RoomForm() {
     };
 
     ws.current.onmessage = e => {
-      console.debug(`WS: Receive message ${e.data.data}`)
+      console.debug(`WS: Receive message ${e.data}`)
 
       let messageLine = new ChatMessageLineDto(JSON.parse(e.data).data.message)
       appendMessageLine(prevState => prevState.concat(messageLine))
     };
+  }
+
+  const handleJoinRoom = (room_key) => {
+    if (location.state === null)
+      axios.get(`${window.location.protocol}//${window.location.hostname}:8000/api/rooms/${room_key}`)
+        .catch(e => {
+          if (e.response.status === 404)
+            navigate('room-not-found')
+        })
+  }
+
+  useEffect(() => {
+    // document.cookie = "sessionid=wxieje5ndhkffepcajepwz3y5m3alw4y"
+    let room_key = location.pathname.split('/')[2] //FIXME find better solution
+
+    handleJoinRoom(room_key)
+
+    openWSConnection(room_key)
 
     return () => {
       ws.current.close()
