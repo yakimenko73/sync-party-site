@@ -12,6 +12,7 @@ export default function RoomForm() {
   const location = useLocation()
   const navigate = useNavigate()
   const [chatMessages, appendMessageLine] = useState([])
+  const [viewers, increaseViewers] = useState(0)
   const ws = useRef(null)
 
   const openWSConnection = (room_key) => {
@@ -41,15 +42,14 @@ export default function RoomForm() {
   }
 
   const handleJoinRoom = (room_key) => {
-    if (location.state === null || !location.state.navigated)
-      axios.get(`${window.location.protocol}//${window.location.hostname}:8000/api/rooms/${room_key}`)
-        .then(res => {
-          console.log(res)
-        })
-        .catch(res => {
-          if (res.response.status === 404)
-            navigate('room-not-found')
-        })
+    axios.get(`${window.location.protocol}//${window.location.hostname}:8000/api/rooms/${room_key}/members/`)
+      .then(res => {
+        increaseViewers(prevState => prevState + res.data.length)
+      })
+      .catch(res => {
+        if (res.response.status === 404)
+          navigate('room-not-found')
+      })
     openWSConnection(room_key)
   }
 
@@ -69,7 +69,7 @@ export default function RoomForm() {
       <HeaderForm/>
       <main className='main'>
         <ChatForm ws={ws} messages={chatMessages}/>
-        <PlayerForm/>
+        <PlayerForm viewers={viewers}/>
       </main>
     </>
   )

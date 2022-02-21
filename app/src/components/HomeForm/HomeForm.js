@@ -8,7 +8,7 @@ export default function HomeForm() {
   const navigate = useNavigate();
   const location = window.location;
   const toRoomForm = (room_key) => {
-    navigate(`/rooms/${room_key}`, {state: {navigated: true}})
+    navigate(`/rooms/${room_key}`)
   }
 
   return (

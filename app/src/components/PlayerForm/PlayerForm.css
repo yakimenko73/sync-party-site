@@ -22,3 +22,15 @@
     color: rgba(97, 218, 251, 0.5);
     margin: 0;
 }
+
+.info {
+    margin-top: 1%;
+    direction: rtl;
+    justify-content: flex-end;
+}
+
+.info .user-counter {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    color: rgba(97, 218, 251, 0.5);
+}
