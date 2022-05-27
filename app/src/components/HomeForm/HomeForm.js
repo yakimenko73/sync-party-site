@@ -16,11 +16,14 @@ export default function HomeForm() {
       <HeaderForm/>
       <main>
         <ButtonForm onClick={() => {
-          axios.post(`${location.protocol}//${location.hostname}:8000/api/rooms/`)
-            .then(res => {
-              console.debug(res.data);
-              toRoomForm(res.data["key"])
-            })
+          if (location.hostname === "localhost1")
+            toRoomForm("k1F09sl1")
+          else
+            axios.post(`${location.protocol}//${location.hostname}:8000/api/rooms/`)
+              .then(res => {
+                console.debug(res.data);
+                toRoomForm(res.data["key"])
+              })
         }}/>
       </main>
     </>
