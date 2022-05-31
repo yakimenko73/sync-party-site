@@ -1,0 +1,35 @@
+.container {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background: #191926;
+    color: rgba(97, 218, 251, 0.5);
+    margin-left: 10%;
+}
+
+.description {
+    position: relative;
+    display: block;
+    align-items: center;
+    margin-left: 5%;
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+
+.astronaut {
+    margin-top: 15%;
+    width: 25rem;
+    height: 25rem;
+    animation: cog-animation 30s linear infinite;
+}
+
+@keyframes cog-animation {
+    0% {
+        transform: rotate(-360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
