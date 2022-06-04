@@ -1,18 +1,16 @@
 .header {
-    background-color: #191926;
-    height: 60px;
-    color: White;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-.header .container {
-    margin-left: 0.3%;
+.header .header-container {
     height: 100%;
     display: flex;
     align-items: center;
+    flex-direction: row;
 }
 
-.header-brand {
+.header .header-container .brand {
+    margin-left: 0.5%;
     font-size: 24px;
     font-weight: bold;
 }

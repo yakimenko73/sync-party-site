@@ -5,8 +5,8 @@ import "./HeaderForm.css"
 export default function HeaderForm() {
   return (
     <header className='header'>
-      <div className='container'>
-        <div className='header-brand'>
+      <div className='header-container'>
+        <div className='brand'>
           <Link to="/" style={{textDecoration: 'none', color: 'white'}}>Sync-party</Link>
         </div>
       </div>

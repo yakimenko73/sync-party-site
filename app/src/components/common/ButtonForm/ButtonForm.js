@@ -2,10 +2,8 @@ import React from 'react';
 import './ButtonForm.css';
 
 
-function ButtonForm(props) {
+export default function ButtonForm(props) {
   return (
-    <button className='button' type='submit' onClick={props.onClick}>Create room</button>
+    <button className='button' type='submit' onClick={props.onClick}>{props.text}</button>
   );
 }
-
-export default ButtonForm;

@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import ButtonForm from "../common/ButtonForm/ButtonForm";
 import axios from "axios";
 import HeaderForm from "../HeaderForm/HeaderForm";
+import "./HomeForm.css"
 
 export default function HomeForm() {
   const navigate = useNavigate();
@@ -15,16 +16,14 @@ export default function HomeForm() {
     <>
       <HeaderForm/>
       <main>
-        <ButtonForm onClick={() => {
-          if (location.hostname === "localhost1")
-            toRoomForm("k1F09sl1")
-          else
+        <div className={"button-container"}>
+          <ButtonForm text="Create a room" onClick={() => {
             axios.post(`${location.protocol}//${location.hostname}:8000/api/rooms/`)
               .then(res => {
-                console.debug(res.data);
                 toRoomForm(res.data["key"])
               })
-        }}/>
+          }}/>
+        </div>
       </main>
     </>
   )

@@ -1,15 +1,16 @@
 .button {
-    background: #5E5DF0;
+    background: rgba(97, 218, 251);
     border-radius: 999px;
-    color: #FFFFFF;
+    color: white;
     cursor: pointer;
     font-size: 14px;
     font-weight: 700;
     line-height: 24px;
     padding: 8px 18px;
     border: 0;
+    text-align: center;
 }
 
 .button:hover {
-    background-color: #6968ec;
+    background-color: rgba(97, 218, 251, 0.75);
 }
