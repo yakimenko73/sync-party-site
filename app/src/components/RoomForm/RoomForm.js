@@ -29,13 +29,14 @@ export default function RoomForm() {
     }
   }), [roomMembers])
   const wsCodes = useMemo(() => ({
-    1000: function (reason) {
+    1000: function (_) {
       setErrorOccurred(prevState => !prevState)
     },
     1001: function (_) {
     },
     1011: function (reason) {
       console.error(reason)
+      setErrorOccurred(prevState => !prevState)
     }
   }), [])
 
@@ -89,7 +90,7 @@ export default function RoomForm() {
       })
       .catch(res => {
         if (res.response.status === 404)
-          navigate('room-not-found')
+          console.debug("Not implemented")
       })
       .finally(() => {
         openWsConnection()
@@ -111,9 +112,11 @@ export default function RoomForm() {
     return (
       <>
         <HeaderForm/>
-        <main className='main'>
-          <ChatForm ws={ws} messages={chatMessages}/>
-          <PlayerForm viewers={roomMembers.length}/>
+        <main>
+          <div className={"room-container"}>
+            <PlayerForm viewers={roomMembers.length}/>
+            <ChatForm ws={ws} messages={chatMessages}/>
+          </div>
         </main>
       </>
     )

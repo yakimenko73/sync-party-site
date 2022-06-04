@@ -3,34 +3,33 @@
     flex-direction: column;
     float: left;
     width: 100%;
-    margin-left: 0.3%;
 }
 
-.player {
-    background-color: rgba(255, 255, 255, 0.05);
+.player-wrapper .player {
+    background: rgb(0, 0, 0, 0.5);
     max-height: 800px;
     height: 100%;
     position: relative;
+    margin-bottom: 1%;
 }
 
 .player .no-content {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     text-align: center;
     color: rgba(97, 218, 251, 0.5);
     margin: 0;
     font-weight: lighter;
 }
 
-.info {
-    margin-top: 1%;
+.player-wrapper .info {
     direction: rtl;
     justify-content: flex-end;
 }
 
-.info .user-counter {
+.player-wrapper .info .user-counter {
     display: inline-flex;
     flex-direction: row-reverse;
     color: rgba(97, 218, 251, 0.5);

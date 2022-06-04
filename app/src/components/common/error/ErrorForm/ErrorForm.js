@@ -12,7 +12,7 @@ export default function ErrorForm(props) {
           <SiOdysee className={"astronaut"}/>
           <div className={"description"}>
             <h1>Houston we have a problem :/</h1>
-            <div>Lol kek</div>
+            <div>{props.text}</div>
           </div>
         </div>
       </main>
