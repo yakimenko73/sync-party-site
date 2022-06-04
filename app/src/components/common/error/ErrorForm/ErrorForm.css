@@ -1,16 +1,13 @@
-.container {
+.error-container {
     overflow: hidden;
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: left;
-    background: #191926;
     color: rgba(97, 218, 251, 0.5);
-    margin-left: 10%;
+    background: #191926;
 }
 
-.description {
-    position: relative;
+.error-container .description {
     display: block;
     align-items: center;
     margin-left: 5%;
@@ -18,7 +15,7 @@
     font-weight: lighter;
 }
 
-.astronaut {
+.error-container .astronaut {
     margin-top: 15%;
     width: 25rem;
     height: 25rem;
