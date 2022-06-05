@@ -11,7 +11,7 @@ export default function App() {
       <Routes>
         <Route exact path="/" element={<HomeForm/>}/>
         <Route exact path="/rooms/:roomKey" element={<RoomForm/>}/>
-        <Route path="*" element={<ErrorForm text={"Page not found :("}/>}/>
+        <Route path="*" element={<ErrorForm text={"This page could not be found"}/>}/>
       </Routes>
     </BrowserRouter>
   )

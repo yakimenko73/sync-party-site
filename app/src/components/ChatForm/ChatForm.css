@@ -1,32 +1,26 @@
 .chat-wrapper {
     display: flex;
     flex-direction: column;
-    float: right;
-    width: 25%;
-    margin-left: 30px;
+    width: 24%;
+    margin-left: 1%;
     height: 100%;
 }
 
-.chat-footer {
+.chat-wrapper .chat-footer {
     position: fixed;
     bottom: 0;
-    width: 19.5%;
+    width: 24%;
 }
 
-.chat-log {
+.chat-wrapper .chat-log {
     scrollbar-width: thin;
     scrollbar-color: rgba(97, 218, 251, 0.40) #191926;
     overflow-y: auto;
     overflow-x: hidden;
-    margin-bottom: 10px;
 }
 
 .chat-log .message-line {
     margin-bottom: 10px;
-}
-
-.chat-log .message-line .author {
-    color: rgba(253, 16, 16, 0.7);
 }
 
 .chat-log .message-line .message {

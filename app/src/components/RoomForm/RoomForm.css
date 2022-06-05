@@ -1,7 +1,8 @@
 .room-container {
     background-color: #191926;
     height: 90vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: stretch;
+    position: absolute;
 }

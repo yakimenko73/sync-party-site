@@ -8,7 +8,7 @@ export default function PlayerForm(props) {
       <div className='player'>
         <h1 className='no-content'>No content</h1>
       </div>
-      <div className={'info'}>
+      <div className={'player-info'}>
         <div className={'user-counter'}>
           <AiOutlineUser size={24}/>
           <div>{props.viewers}</div>
