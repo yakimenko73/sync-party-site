@@ -6,14 +6,12 @@ import PlayerForm from "../PlayerForm/PlayerForm";
 import './RoomForm.css'
 import ChatMessageLineDto from "../../dto/ChatMessageLineDto";
 import {useLocation} from "react-router";
-import {useNavigate} from "react-router-dom";
 import RoomMemberDto from "../../dto/RoomMemberDto";
 import retrieveRoomKey from "../../utils/utils";
 import ErrorForm from "../common/error/ErrorForm/ErrorForm";
 
 export default function RoomForm() {
   const location = useLocation()
-  const navigate = useNavigate()
   const [chatMessages, appendMessageLine] = useState([])
   const [roomMembers, appendMember] = useState([])
   const [errorOccurred, setErrorOccurred] = useState(false)
@@ -31,12 +29,14 @@ export default function RoomForm() {
   const wsCodes = useMemo(() => ({
     1000: function (_) {
       setErrorOccurred(prevState => !prevState)
+      return <ErrorForm/>
     },
     1001: function (_) {
     },
     1011: function (reason) {
       console.error(reason)
       setErrorOccurred(prevState => !prevState)
+      return <ErrorForm/>
     }
   }), [])
 
@@ -106,18 +106,15 @@ export default function RoomForm() {
     }
   }, []);
 
-  if (errorOccurred)
-    return <ErrorForm/>
-  else
-    return (
-      <>
-        <HeaderForm/>
-        <main>
-          <div className={"room-container"}>
-            <PlayerForm viewers={roomMembers.length}/>
-            <ChatForm ws={ws} messages={chatMessages}/>
-          </div>
-        </main>
-      </>
-    )
+  return (
+    <>
+      <HeaderForm/>
+      <main>
+        <div className={"room-container"}>
+          <PlayerForm viewers={roomMembers.length}/>
+          <ChatForm ws={ws} messages={chatMessages}/>
+        </div>
+      </main>
+    </>
+  )
 }
