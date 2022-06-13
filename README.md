@@ -1,3 +1,4 @@
+[![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 # Sync-party site
 ## What is it?
 Web-site for the open source project sync-party
